@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workstation Installation Manuals</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1a73e8 0%, #6c8ef5 100%);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .instructions {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid #1a73e8;
+        }
+        
+        .instructions h2 {
+            color: #1a73e8;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .instructions ol {
+            padding-left: 25px;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .documents-list {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+        }
+        
+        .doc-header {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            font-weight: 600;
+            color: #444;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+        
+        .document-item {
+            padding: 25px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        
+        .document-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .document-item:last-child {
+            border-bottom: none;
+        }
+        
+        .product-image {
+            width: 100px;
+            height: 80px;
+            margin-right: 25px;
+            border-radius: 8px;
+            object-fit: contain;
+            border: 1px solid #e0e0e0;
+            background-color: #f8f9fa;
+            padding: 5px;
+        }
+        
+        .doc-icon {
+            width: 48px;
+            height: 48px;
+            background: #e8f0fe;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: #1a73e8;
+            font-size: 20px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .doc-info {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .doc-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .doc-size {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        .download-btn {
+            background: #1a73e8;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: inline-block;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        
+        .download-btn:hover {
+            background: #0d62d9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+        }
+        
+        .image-placeholder {
+            width: 100px;
+            height: 80px;
+            margin-right: 25px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #c2d6ff;
+            color: #1a73e8;
+            font-size: 12px;
+            text-align: center;
+            padding: 5px;
+            flex-shrink: 0;
+        }
+        
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+            padding: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .document-item {
+                flex-wrap: wrap;
+                padding: 20px;
+            }
+            
+            .image-placeholder,
+            .product-image {
+                width: 80px;
+                height: 65px;
+                margin-right: 15px;
+                margin-bottom: 10px;
+            }
+            
+            .doc-icon {
+                margin-right: 15px;
+            }
+            
+            .download-btn {
+                margin-top: 15px;
+                width: 100%;
+                text-align: center;
+                order: 3;
+            }
+            
+            .doc-info {
+                flex-basis: calc(100% - 120px);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .doc-info {
+                flex-basis: calc(100% - 100px);
+            }
+            
+            .image-placeholder,
+            .product-image {
+                width: 70px;
+                height: 55px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Workstation Installation Manuals</h1>
+        <p class="subtitle">Complete technical documentation for workstation installation and setup</p>
+    </div>
+    
+    <div class="instructions">
+        <h2>How to Use:</h2>
+        <ol>
+            <li>Select the appropriate manual for your workstation configuration</li>
+            <li>Click the "Download PDF" button</li>
+            <li>Save the file to your device for reference</li>
+            <li>For best results, print the manual or view on a tablet during installation</li>
+        </ol>
+    </div>
+    
+    <div class="documents-list">
+        <div class="doc-header">Available Workstation Manuals</div>
+        
+        <!-- 文档1: 1-Person Workstation -->
+        <div class="document-item">
+            <div class="doc-icon">1</div>
+            <div class="image-placeholder">
+                1-Person<br>Workstation
+            </div>
+            <div class="doc-info">
+                <div class="doc-title">1-Person Workstation</div>
+                <div class="doc-size">Single user workstation installation guide. Includes assembly instructions, safety guidelines, and maintenance procedures.</div>
+            </div>
+            <a href="1-Person Workstation Installation.pdf" class="download-btn" download>Download PDF</a>
+        </div>
+        
+        <!-- 文档2: 2-Person Side-by-Side Workstation -->
+        <div class="document-item">
+            <div class="doc-icon">2</div>
+            <div class="image-placeholder">
+                2-Person<br>Side-by-Side
+            </div>
+            <div class="doc-info">
+                <div class="doc-title">2-Person Side-by-Side Workstation</div>
+                <div class="doc-size">Dual user side-by-side configuration guide. Covers parallel workstation setup and shared equipment installation.</div>
+            </div>
+            <a href="2-Person Side-by-Side Installation.pdf" class="download-btn" download>Download PDF</a>
+        </div>
+        
+        <!-- 文档3: 3-Person Side-by-Side Workstation -->
+        <div class="document-item">
+            <div class="doc-icon">3</div>
+            <div class="image-placeholder">
+                3-Person<br>Side-by-Side
+            </div>
+            <div class="doc-info">
+                <div class="doc-title">3-Person Side-by-Side Workstation</div>
+                <div class="doc-size">Triple user side-by-side configuration guide. Includes extended work surface setup and cable management systems.</div>
+            </div>
+            <a href="3-Person Side-by-Side Installation.pdf" class="download-btn" download>Download PDF</a>
+        </div>
+        
+        <!-- 文档4: 2-Person Face-to-Face Workstation -->
+        <div class="document-item">
+            <div class="doc-icon">4</div>
+            <div class="image-placeholder">
+                2-Person<br>Face-to-Face
+            </div>
+            <div class="doc-info">
+                <div class="doc-title">2-Person Face-to-Face Workstation</div>
+                <div class="doc-size">Dual user face-to-face configuration guide. Covers opposing workstation setup and collaborative space optimization.</div>
+            </div>
+            <a href="2-Person Face-to-Face Installation.pdf" class="download-btn" download>Download PDF</a>
+        </div>
+        
+        <!-- 文档5: 4-Person Face-to-Face Workstation -->
+        <div class="document-item">
+            <div class="doc-icon">5</div>
+            <div class="image-placeholder">
+                4-Person<br>Face-to-Face
+            </div>
+            <div class="doc-info">
+                <div class="doc-title">4-Person Face-to-Face Workstation</div>
+                <div class="doc-size">Four user face-to-face configuration guide. Complete setup for team collaboration workstations with integrated systems.</div>
+            </div>
+            <a href="4-Person Face-to-Face Installation.pdf" class="download-btn" download>Download PDF</a>
+        </div>
+        
+        <!-- 文档6: 6-Person Face-to-Face Workstation -->
+        <div class="document-item">
+            <div class="doc-icon">6</div>
+            <div class="image-placeholder">
+                6-Person<br>Face-to-Face
+            </div>
+            <div class="doc-info">
+                <div class="doc-title">6-Person Face-to-Face Workstation</div>
+                <div class="doc-size">Six user face-to-face configuration guide. Large-scale team workstation setup with advanced cable management.</div>
+            </div>
+            <a href="6-Person Face-to-Face Installation.pdf" class="download-btn" download>Download PDF</a>
+        </div>
+        
+        <!-- 文档7: Mobile Cabinet -->
+        <div class="document-item">
+            <div class="doc-icon">7</div>
+            <div class="image-placeholder">
+                Mobile<br>Cabinet
+            </div>
+            <div class="doc-info">
+                <div class="doc-title">Mobile Cabinet</div>
+                <div class="doc-size">Mobile cabinet installation guide. Includes assembly instructions, wheel installation, and storage configuration.</div>
+            </div>
+            <a href="Mobile Cabinet Installation.pdf" class="download-btn" download>Download PDF</a>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Professional Installation Documentation</p>
+    </div>
+
+    <script>
+        // 自动替换占位符为实际图片（当图片上传后）
+        document.addEventListener('DOMContentLoaded', function() {
+            const imageMap = {
+                // 产品标题与PNG图片文件名的映射
+                '1-Person Workstation': '1-Person Workstation.png',
+                '2-Person Side-by-Side Workstation': '2-Person Side-by-Side Workstation.png',
+                '3-Person Side-by-Side Workstation': '3-Person Side-by-Side Workstation.png',
+                '2-Person Face-to-Face Workstation': '2-Person Face-to-Face Workstation.png',
+                '4-Person Face-to-Face Workstation': '4-Person Face-to-Face Workstation.png',
+                '6-Person Face-to-Face Workstation': '6-Person Face-to-Face Workstation.png',
+                'Mobile Cabinet': 'Mobile Cabinet.png'
+            };
+            
+            // 产品标题数组（按显示顺序）
+            const titles = [
+                '1-Person Workstation',
+                '2-Person Side-by-Side Workstation', 
+                '3-Person Side-by-Side Workstation',
+                '2-Person Face-to-Face Workstation',
+                '4-Person Face-to-Face Workstation',
+                '6-Person Face-to-Face Workstation',
+                'Mobile Cabinet'
+            ];
+            
+            // 查找所有占位符
+            const placeholders = document.querySelectorAll('.image-placeholder');
+            
+            placeholders.forEach((placeholder, index) => {
+                const title = titles[index];
+                const imageName = imageMap[title];
+                
+                // 尝试加载PNG图片
+                const img = new Image();
+                img.src = imageName;
+                
+                img.onload = function() {
+                    // PNG图片存在，替换占位符
+                    console.log(`Found PNG image: ${imageName}`);
+                    const productImage = document.createElement('img');
+                    productImage.className = 'product-image';
+                    productImage.src = imageName;
+                    productImage.alt = title;
+                    productImage.title = title;
+                    placeholder.parentNode.replaceChild(productImage, placeholder);
+                };
+                
+                img.onerror = function() {
+                    // PNG图片不存在，尝试其他格式
+                    const jpgName = imageName.replace('.png', '.jpg');
+                    const jpegName = imageName.replace('.png', '.jpeg');
+                    const webpName = imageName.replace('.png', '.webp');
+                    
+                    // 按顺序尝试不同格式
+                    const formats = [jpgName, jpegName, webpName];
+                    let formatIndex = 0;
+                    
+                    const tryNextFormat = () => {
+                        if (formatIndex >= formats.length) {
+                            console.log(`No image found for: ${title}, keeping placeholder.`);
+                            return;
+                        }
+                        
+                        const testImg = new Image();
+                        testImg.src = formats[formatIndex];
+                        
+                        testImg.onload = function() {
+                            console.log(`Found image: ${formats[formatIndex]}`);
+                            const productImage = document.createElement('img');
+                            productImage.className = 'product-image';
+                            productImage.src = formats[formatIndex];
+                            productImage.alt = title;
+                            productImage.title = title;
+                            placeholder.parentNode.replaceChild(productImage, placeholder);
+                        };
+                        
+                        testImg.onerror = function() {
+                            formatIndex++;
+                            tryNextFormat();
+                        };
+                    };
+                    
+                    tryNextFormat();
+                };
+            });
+        });
+    </script>
+</body>
+</html>
